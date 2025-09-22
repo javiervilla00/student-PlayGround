@@ -1,0 +1,12 @@
+package org.example.edu.iesam.students.data.local
+
+import edu.iesam.studentplayground.features.students.domain.Student
+
+class StudentMemLocalDataSource{
+    private val dataSource : MutableMap<String, Student> = mutableMapOf()
+
+    fun save(student: Student): String {
+        dataSource.put(student.exp, student)
+        TODO("Not yet implemented")
+    }
+}
