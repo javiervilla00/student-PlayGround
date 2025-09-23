@@ -5,5 +5,7 @@ class SaveStudentUseCase (val studentRepository: StudentRepository) {
     operator fun invoke(student: Student){
         studentRepository.save(student)
     }
-
+// delete eliminar
+    // update actualizar
+    //get students use case
 }

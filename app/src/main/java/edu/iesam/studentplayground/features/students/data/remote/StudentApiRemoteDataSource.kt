@@ -8,4 +8,8 @@ class StudentApiRemoteDataSource : StudentRepository {
     override fun save(student: Student) {
         TODO("Not yet implemented")
     }
+
+    override fun get(): List<Student> {
+        TODO("Not yet implemented")
+    }
 }

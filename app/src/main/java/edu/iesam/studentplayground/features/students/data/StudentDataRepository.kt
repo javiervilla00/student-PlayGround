@@ -11,7 +11,12 @@ class StudentDataRepository(
     private val memLocalDataSource: StudentMemLocalDataSource,
     private val apiRemoteDataSource: StudentApiRemoteDataSource
 ) : StudentRepository {
+    // Guardar estudiante
     override fun save(student: Student) {
         memLocalDataSource.save(student)
+    }
+    // Devolver estudiantes
+    override fun get(): List<Student> {
+        return memLocalDataSource.get()
     }
 }
