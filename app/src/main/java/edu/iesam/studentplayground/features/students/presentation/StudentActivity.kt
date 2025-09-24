@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import edu.iesam.studentplayground.R
+import edu.iesam.studentplayground.features.students.domain.DeleteStudentUseCase
 import edu.iesam.studentplayground.features.students.domain.GetStudentsUseCase
 import edu.iesam.studentplayground.features.students.domain.SaveStudentUseCase
 import org.example.edu.iesam.students.data.StudentDataRepository
@@ -34,8 +35,9 @@ class StudentActivity : AppCompatActivity() {
         val dataRepository = StudentDataRepository(xml, mem, api)
         val useCase = SaveStudentUseCase(dataRepository)
         val getUseCase = GetStudentsUseCase(dataRepository)
+        val deleteUseCase = DeleteStudentUseCase(dataRepository)
 
-        val viewModel = StudentViewModel(useCase, getUseCase)
+        val viewModel = StudentViewModel(useCase, getUseCase, deleteUseCase)
         /* Otra manera:
         val viewModel = StudentViewModel(
             SaveStudentUseCase(
@@ -49,6 +51,9 @@ class StudentActivity : AppCompatActivity() {
         viewModel.saveClicked("0001", "nombre1 apellido1 apellido1")
         viewModel.saveClicked("0002", "nombre2 apellido2 apellido2")
         viewModel.loadStudents()
-        Log.d("@dev", "Stop")
+        val allStudents = viewModel.loadStudents()
+        Log.d("@dev", "Lista de alumnos: $allStudents")
+        viewModel.deleteStudents("0001")
+        Log.d("@dev", "Lista tras delete: $allStudents")
     }
 }

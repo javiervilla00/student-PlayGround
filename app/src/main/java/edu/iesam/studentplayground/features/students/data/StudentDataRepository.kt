@@ -19,4 +19,8 @@ class StudentDataRepository(
     override fun get(): List<Student> {
         return memLocalDataSource.get()
     }
+    //Eliminar estudiante
+    override fun delete(exp: String) {
+        memLocalDataSource.delete(exp)
+    }
 }
