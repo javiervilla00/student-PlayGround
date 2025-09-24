@@ -4,4 +4,5 @@ interface StudentRepository {
     fun save(student: Student)
     fun get(): List<Student>
     fun delete(exp: String)
+    fun update(student: Student)
 }

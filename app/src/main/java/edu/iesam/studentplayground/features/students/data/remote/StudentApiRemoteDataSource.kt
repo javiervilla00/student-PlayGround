@@ -16,4 +16,8 @@ class StudentApiRemoteDataSource : StudentRepository {
     override fun delete(exp: String) {
         TODO("Not yet implemented")
     }
+
+    override fun update(student: Student) {
+        TODO("Not yet implemented")
+    }
 }

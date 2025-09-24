@@ -16,4 +16,10 @@ class StudentMemLocalDataSource {
     fun delete(exp: String){
         dataSource.remove(exp)
     }
+
+    fun update(student: Student){
+        if (dataSource.containsKey(student.exp)){
+            dataSource[student.exp] = student
+        }
+    }
 }

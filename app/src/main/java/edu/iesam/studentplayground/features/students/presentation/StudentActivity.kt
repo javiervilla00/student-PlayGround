@@ -10,6 +10,7 @@ import edu.iesam.studentplayground.R
 import edu.iesam.studentplayground.features.students.domain.DeleteStudentUseCase
 import edu.iesam.studentplayground.features.students.domain.GetStudentsUseCase
 import edu.iesam.studentplayground.features.students.domain.SaveStudentUseCase
+import edu.iesam.studentplayground.features.students.domain.UpdateStudentUseCase
 import org.example.edu.iesam.students.data.StudentDataRepository
 import org.example.edu.iesam.students.data.local.StudentMemLocalDataSource
 import org.example.edu.iesam.students.data.local.StudentXmlLocalDataSource
@@ -36,8 +37,9 @@ class StudentActivity : AppCompatActivity() {
         val useCase = SaveStudentUseCase(dataRepository)
         val getUseCase = GetStudentsUseCase(dataRepository)
         val deleteUseCase = DeleteStudentUseCase(dataRepository)
+        val updateUseCase = UpdateStudentUseCase(dataRepository)
 
-        val viewModel = StudentViewModel(useCase, getUseCase, deleteUseCase)
+        val viewModel = StudentViewModel(useCase, getUseCase, deleteUseCase, updateUseCase)
         /* Otra manera:
         val viewModel = StudentViewModel(
             SaveStudentUseCase(
@@ -55,5 +57,8 @@ class StudentActivity : AppCompatActivity() {
         Log.d("@dev", "Lista de alumnos: $allStudents")
         viewModel.deleteStudents("0001")
         Log.d("@dev", "Lista tras delete: $allStudents")
+        viewModel.updateStudent("0002", "nombre2nuevo apellido2 apellido2")
+        Log.d("@dev", "Lista tras update $allStudents")
+
     }
 }
