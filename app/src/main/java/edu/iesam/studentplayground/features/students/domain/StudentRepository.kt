@@ -2,7 +2,7 @@ package edu.iesam.studentplayground.features.students.domain
 
 interface StudentRepository {
     fun save(student: Student)
-    fun get(): List<Student>
+    fun findAll(): List<Student>
     fun delete(exp: String)
     fun update(student: Student)
 }
