@@ -7,5 +7,4 @@ class SaveStudentUseCase (val studentRepository: StudentRepository) {
     }
 // delete eliminar
     // update actualizar
-    //get students use case
 }

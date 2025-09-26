@@ -16,8 +16,8 @@ class StudentDataRepository(
         memLocalDataSource.save(student)
     }
     // Devolver estudiantes
-    override fun get(): List<Student> {
-        return memLocalDataSource.get()
+    override fun findAll(): List<Student> {
+        return memLocalDataSource.findAll()
     }
     //Eliminar estudiante
     override fun delete(exp: String) {

@@ -35,11 +35,11 @@ class StudentActivity : AppCompatActivity() {
         val api = StudentApiRemoteDataSource()
         val dataRepository = StudentDataRepository(xml, mem, api)
         val useCase = SaveStudentUseCase(dataRepository)
-        val getUseCase = GetStudentsUseCase(dataRepository)
+        val getAllUseCase = GetStudentsUseCase(dataRepository)
         val deleteUseCase = DeleteStudentUseCase(dataRepository)
         val updateUseCase = UpdateStudentUseCase(dataRepository)
 
-        val viewModel = StudentViewModel(useCase, getUseCase, deleteUseCase, updateUseCase)
+        val viewModel = StudentViewModel(useCase, getAllUseCase, deleteUseCase, updateUseCase)
         /* Otra manera:
         val viewModel = StudentViewModel(
             SaveStudentUseCase(
